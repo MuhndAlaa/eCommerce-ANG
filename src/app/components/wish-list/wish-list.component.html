@@ -1,0 +1,13 @@
+<section>
+    <button class="btn btn-primary" (click)="toggleWishList()" [ngStyle]="{'right': toggleFlag ? '0' : '25vw' }">View Wish list <span *ngIf="!(products.length == 0)">{{products.length}}</span></button>
+    <div #wishList class="container" [ngStyle]="{'right':toggleFlag ? '-25vw' : '0' }">
+        <div>
+            <div class="text-center text-white" *ngIf="products.length == 0">
+                <h2>Wish list is Empty</h2>
+            </div>
+            <div *ngFor="let product of products">
+                <app-wish-item [product]="product"></app-wish-item>
+            </div>
+        </div>
+    </div>
+</section>

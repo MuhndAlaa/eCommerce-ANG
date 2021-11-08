@@ -1,0 +1,23 @@
+<section>
+
+    <div *ngIf="products.length ==0">
+        <h2 class="text-center">The cart is Empty</h2>
+    </div>
+    <div class="container "*ngIf="products.length !=0">
+        <div *ngFor="let product of products ;let i = index" class="cart-item d-flex justify-content-between">
+            <p>{{product.title}}</p>
+
+            <p>{{product.price * product.quantity | currency:"EGP"}}</p>
+
+            <div class="btngroup d-flex justify-content-center">
+                <button class="btn btn-primary" (click)="increaseQuantity(product)">+</button>
+                <p class="mx-3">{{product.quantity}}</p>
+                <button class="btn btn-primary" (click)="decreaseQuantity(product , i)">-</button>
+            </div>
+ 
+        </div>
+        <hr>
+        <p>Total Price : {{totalPrice | currency:"EGP"}}</p>
+        
+    </div>
+</section>

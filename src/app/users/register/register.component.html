@@ -1,0 +1,131 @@
+<section>
+    <div class="container">
+        <form [formGroup]="signinForm" (ngSubmit)="submitSignin()">
+
+            <!-- Name  -->
+            <div class="mb-3">
+                <label for="userName" class="form-label">
+                    Name</label>
+                <input type="text" class="form-control" id="userName" name="userName" formControlName="userName"
+                [ngClass]="{'is-valid': getSignForm.userName.touched && getSignForm.userName.valid}">
+            
+                <div *ngIf="">
+                    <p *ngIf="getSignForm.userName.errors.required" class="alert alert-danger" role="alert">This Field is required</p>
+                </div>
+            </div>
+
+            <!-- Email  -->
+            <div class="mb-3">
+              <label for="userEmail" class="form-label">Email</label>
+              <input type="email" class="form-control" id="userEmail"
+              name="userEmail"
+              formControlName="userEmail"
+              [ngClass]="{'is-valid': getSignForm.userEmail.touched && getSignForm.userEmail.valid}">
+
+              <div *ngIf="getSignForm.userEmail.touched && !getSignForm.userEmail.valid">
+                <p *ngIf="getSignForm.userEmail.errors.required" class="alert alert-danger" role="alert">This Field is required</p>
+                <p *ngIf="getSignForm.userEmail.errors.email" class="alert alert-danger" role="alert">This is not valid Email</p>
+            </div>
+            </div>
+
+            <!-- Username  -->
+            <div class="mb-3">
+                <label for="userUsername" class="form-label">Username</label>
+                <input type="text" class="form-control" id="userUsername" 
+                name="userUsername"
+                formControlName="userUsername"
+                [ngClass]="{'is-valid': getSignForm.userUsername.touched && getSignForm.userUsername.valid}">
+
+                <div *ngIf="getSignForm.userUsername.touched && !getSignForm.userUsername.valid">
+                    <p *ngIf="getSignForm.userUsername.errors.required" class="alert alert-danger" role="alert">This Field is required</p>
+                    <p *ngIf="getSignForm.userUsername.errors.pattern" class="alert alert-danger" role="alert">This is not valid no space allowed</p>
+                </div>
+            </div>
+
+            <!-- Password  -->
+            <div class="mb-3">
+                <label for="userPass" class="form-label">Password</label>
+                <input type="password" class="form-control" id="userPass" 
+                name="userPass"
+                formControlName="userPass"
+                #userPass
+                [ngClass]="{'is-valid': getSignForm.userPass.touched && getSignForm.userPass.valid}">
+
+                <div *ngIf="getSignForm.userPass.touched && !getSignForm.userPass.valid">
+                    <p *ngIf="getSignForm.userPass.errors.required" class="alert alert-danger" role="alert">This Field is required</p>
+                    <p *ngIf="getSignForm.userPass.errors.maxlength" class="alert alert-danger" role="alert">This is too long max 8 characters</p>
+                    <p *ngIf="getSignForm.userPass.errors.pattern" class="alert alert-danger" role="alert">This password must contains at least one (lowercase - uppercase - numebr - special characters)</p>
+                </div>
+            </div>
+
+
+            <!-- Confrim Password  -->
+            <div class="mb-3">
+                <label for="userConfirmPass" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="userConfirmPass"
+                name="userConfirmPass"
+                formControlName="userConfirmPass"
+                #userConfirmPass
+                [ngClass]="{'is-valid': getSignForm.userConfirmPass.touched && getSignForm.userConfirmPass.valid}">
+
+                <div *ngIf="getSignForm.userConfirmPass.touched && !getSignForm.userConfirmPass.valid">
+                    <p *ngIf="getSignForm.userConfirmPass.errors.required" class="alert alert-danger" role="alert">This Field is required</p>
+                    <p *ngIf="getSignForm.userConfirmPass.errors.confirmedValidator" class="alert alert-danger" role="alert">This doesn't match your pass</p>
+                </div>
+            </div>
+
+            
+            <!-- Location -->
+            <h2>Locations</h2>
+            <button class="btn btn-info" type="button" (click)="addLocations()">Add</button>
+            <div class="location-input m-3" formArrayName="userLocation"
+                *ngFor="let lec of signinForm.controls.userLocation.value; let i = index trackBy: trackByFn" >
+                <div [formGroupName]="i">
+                    
+                <div class="row">
+                    <div class="col">
+                        <input class="my-3 form-control" type="text" placeholder="Address" formControlName="address">
+                        <div *ngIf="getLocation(i).address.touched && !getLocation(i).address.valid">
+                            <p class="alert alert-danger" *ngIf="getLocation(i).address.errors.required">this field is required</p>
+                            <p class="alert alert-danger" *ngIf="getLocation(i).address.errors.pattern">only characters or numbers</p>
+                        </div>
+                    </div>
+                
+                    <div class="col">
+                        <input class="my-3 form-control" type="text" placeholder="Street" formControlName="street">
+                        <div *ngIf="getLocation(i).street.touched && !getLocation(i).street.valid">
+                            <p class="alert alert-danger" *ngIf="getLocation(i).street.errors.required">this field is required</p>
+                            <p class="alert alert-danger" *ngIf="getLocation(i).street.errors.pattern">only characters or numbers</p>
+                        </div>
+                    </div>
+                
+                    <div class="col">
+                        <input class="my-3 form-control" type="text" placeholder="Country" formControlName="country">
+                        <div *ngIf="getLocation(i).country.touched && !getLocation(i).country.valid">
+                            <p class="alert alert-danger" *ngIf="getLocation(i).country.errors.required">this field is required</p>
+                            <p class="alert alert-danger" *ngIf="getLocation(i).country.errors.pattern">only characters only</p>
+                        </div>
+                    </div>
+                
+                    <div class="col">
+                        <input class="my-3 form-control" type="text" placeholder="City" formControlName="city">
+                        <div *ngIf="getLocation(i).city.touched && !getLocation(i).city.valid">
+                            <p class="alert alert-danger" *ngIf="getLocation(i).city.errors.required">this field is required</p>
+                            <p class="alert alert-danger" *ngIf="getLocation(i).city.errors.pattern">only characters only</p>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                         <button class="btn btn-danger  my-3" type="button" (click)="removeLocation(i)">X</button>
+                    </div>
+                </div>
+                
+                   
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-5 float-end" [disabled]="!signinForm.valid">Submit</button>
+
+          </form>
+    </div>
+</section>

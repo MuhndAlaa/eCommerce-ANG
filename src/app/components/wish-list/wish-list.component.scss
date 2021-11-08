@@ -1,0 +1,28 @@
+section{
+    transition: 0.2s all linear;
+    .container{
+        padding: 10rem 1rem 5rem;
+        background-color: var(--main-color);
+        box-shadow: var(--box-shadow);
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: -25vw;
+        width: 25vw;
+        z-index: 50;
+        overflow: auto;
+    }
+    button{
+        background-color: var(--bg-color-1);
+        color: var(--main-color);
+        box-shadow: var(--box-shadow);
+        position: fixed;
+        top: 100px;
+        right: 0px;
+        z-index: 50;
+        font-size: 1.6rem;
+        border-right: none;
+        border-bottom-right-radius: none;
+        border-top-right-radius: none;
+    }
+}

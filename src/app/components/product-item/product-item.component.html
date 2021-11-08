@@ -1,0 +1,10 @@
+<div class="card" (click)="goToDetails()">
+    <img [src]="product?.image" class="card-img-top">
+    <div class="card-body d-flex flex-column justify-content-between">
+        <h5 class="card-title">{{product?.title}}</h5>
+        <p class="card-text">{{product?.category}}</p>
+        <h6 class="card-text">{{product?.price | currency:'EGP'}}</h6>
+        <a class="btn btn-primary w-100" (click)="addtoCart($event,product)" >Add to Cart</a>
+        <div [class.text-warning]="checkWishlist(product)" (click)="addtoWishlist($event ,product)" class="wish-icon"><i class="fas fa-star"></i></div>
+    </div>
+</div>
