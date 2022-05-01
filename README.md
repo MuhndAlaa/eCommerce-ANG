@@ -32,7 +32,7 @@ To start live server, run the following command
 
 ## Tech Stack
 
-**Client:** HTML, CSS , bootstrap, react.js
+**Client:** HTML, CSS , bootstrap, angular
 
 
 ## 🔗 Links
