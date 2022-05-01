@@ -1,27 +1,41 @@
-# ECommerce
+# Angular E-Commerce App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
+A angular project for e-commerce website
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Run Locally
 
-## Code scaffolding
+Install dependcies
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+  npm intsall
+```
 
-## Build
+To build, run the following command
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```bash
+  npm serve --o
+```
 
-## Running unit tests
+To start live server, run the following command
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+  npm build --prod
+```
 
-## Running end-to-end tests
+## Home endpoint
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```bash
+  http://localhost:4200/
+```
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Tech Stack
+
+**Client:** HTML, CSS , bootstrap, react.js
+
+
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://muhndalaa.github.io/portfolio/)
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohanad96alaa/)
